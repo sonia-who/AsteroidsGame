@@ -1,6 +1,7 @@
 Star[] starBackground = new Star[300];
 Spaceship ship = new Spaceship();
 Asteroid asteroid = new Asteroid();
+boolean accelerating = false;
 
 ArrayList <Asteroid> asteroid1 = new ArrayList <Asteroid>();
 //your variable declarations here
@@ -12,7 +13,7 @@ public void setup()
     starBackground[i] = new Star();
   }
   
-  for(int i = 0; i < 10; i++) {
+  for(int i = 0; i < 5; i++) {
     asteroid1.add(new Asteroid());
   }
   
@@ -53,9 +54,16 @@ public void keyPressed() {
   
   if(key == 'w' || key == 'W') {
     ship.accelerate(0.75);
+    
+    accelerating = true;
   }
   
   if(key == 's' || key == 'S') {
     ship.accelerate(-0.75);
   }
+  
+}
+
+public void keyReleased(){
+  accelerating = false;
 }
