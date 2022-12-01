@@ -17,8 +17,8 @@ class Spaceship extends Floater {
       
       xCorners[3] = -2;
       yCorners[3] = 0;
-      myCenterX = 250 + (int)(Math.random() * 100 - 50);
-      myCenterY = 250 + (int)(Math.random() * 50 - 25);
+      myCenterX = 250;
+      myCenterY = 250;
       myXspeed = 0;
       myYspeed = 0;
       myPointDirection = 0;
@@ -36,4 +36,20 @@ class Spaceship extends Floater {
        myPointDirection = (int)(Math.random() * 360);
     }
     
+    // TRYING TO OVERIDE SHOW FROM FLOATER TO GET FIRE COMING OUT OF ROCKET
+    public void show() {      
+      if(accelerating == true) {
+      fill(250,175,45);
+      noStroke();
+      beginShape();
+        vertex(-25, -10);
+        vertex(-5, 0);
+        vertex(-25, 10);
+        vertex(-15, 5);
+        vertex(-25, 0);
+        vertex(-15, -5);
+      endShape(CLOSE);
+    }
+    super.show();
+   }
 }
