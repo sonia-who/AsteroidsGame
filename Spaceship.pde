@@ -39,17 +39,37 @@ class Spaceship extends Floater {
     // TRYING TO OVERIDE SHOW FROM FLOATER TO GET FIRE COMING OUT OF ROCKET
     public void show() {      
       if(accelerating == true) {
-      fill(250,175,45);
-      noStroke();
-      beginShape();
+        //translate the (x,y) center of the ship to the correct position
+        translate((float)myCenterX, (float)myCenterY);
+    
+        //convert degrees to radians for rotate()     
+        float dRadians = (float)(myPointDirection*(Math.PI/180));
+        
+        //rotate so that the polygon will be drawn in the correct direction
+        rotate(dRadians);
+        
+        fill(250,175,45);
+        noStroke();
+        beginShape();
         vertex(-25, -10);
         vertex(-5, 0);
         vertex(-25, 10);
         vertex(-15, 5);
         vertex(-25, 0);
         vertex(-15, -5);
-      endShape(CLOSE);
+        endShape(CLOSE);
+        
+        rotate(-1*dRadians);
+        translate(-1*(float)myCenterX, -1*(float)myCenterY);
+      }
+      super.show();
     }
-    super.show();
-   }
+   
+   public double getMyCenterX() {
+    return myCenterX;
+  }
+  
+  public double getMyCenterY() {
+    return myCenterY;
+  }
 }
