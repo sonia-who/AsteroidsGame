@@ -13,7 +13,7 @@ public void setup()
     starBackground[i] = new Star();
   }
   
-  for(int i = 0; i < 5; i++) {
+  for(int i = 0; i < 10; i++) {
     asteroid1.add(new Asteroid());
   }
   
@@ -36,6 +36,13 @@ public void draw()
       asteroid1.remove(i);
     }
   }
+  
+  if(asteroid1.size() == 0) {
+    textSize(50);
+    fill((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
+    textAlign(CENTER, CENTER);
+    text("WINNER", 250, 250);
+  }
 }
 
 public void keyPressed() {
@@ -45,11 +52,13 @@ public void keyPressed() {
   }
   
   if(key == 'a' || key == 'A') {
-    ship.turn(-45);
+    ship.turn(-15);
+    ship.turn(-15);
   }
   
   if(key == 'd' || key == 'D') {
-    ship.turn(45);
+    ship.turn(15);
+    ship.turn(15);
   }
   
   if(key == 'w' || key == 'W') {
