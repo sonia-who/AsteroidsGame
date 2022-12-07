@@ -1,6 +1,8 @@
 Star[] starBackground = new Star[300];
 Spaceship ship = new Spaceship();
-Asteroid asteroid = new Asteroid();
+
+ArrayList <Bullet> bullet = new ArrayList <Bullet>();
+
 boolean accelerating = false;
 
 ArrayList <Asteroid> asteroid1 = new ArrayList <Asteroid>();
@@ -37,6 +39,22 @@ public void draw()
     }
   }
   
+  for(int i = 0; i < bullet.size(); i++) {
+    bullet.get(i).move();
+    bullet.get(i).show();
+  }
+  
+  for(int i = bullet.size()-1; i >= 0; i--) {
+    for(int y = asteroid1.size()-1; y >= 0; y--) {
+       float s = dist((float)bullet.get(i).getMyCenterX(), (float)bullet.get(i).getMyCenterY(), (float)asteroid1.get(y).getMyCenterX(), (float)asteroid1.get(y).getMyCenterY());
+        if(s < 10) {
+          asteroid1.remove(y);
+          bullet.remove(i);
+          break;
+        }
+    }
+  }
+    
   if(asteroid1.size() == 0) {
     textSize(50);
     fill((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
@@ -69,6 +87,10 @@ public void keyPressed() {
   
   if(key == 's' || key == 'S') {
     ship.accelerate(-0.75);
+  }
+  
+  if(key == ' ') {
+    bullet.add(new Bullet(ship));
   }
   
 }
