@@ -85,7 +85,7 @@ public void keyPressed() {
     ship.accelerate(-0.75);
   }
   
-  if(key == ' ') {
+  if(key == 'k' || key == 'K') {
     bullet.add(new Bullet(ship));
   }  
 }
