@@ -26,7 +26,7 @@ class Spaceship extends Floater {
       myColor= 255;
     }
 
-     public void hyperspace() {
+    public void hyperspace() {
        myXspeed = 0;
        myYspeed = 0;
        
@@ -65,11 +65,23 @@ class Spaceship extends Floater {
       super.show();
     }
    
-   public double getMyCenterX() {
-    return myCenterX;
-  }
+    public double getMyCenterX() {
+      return myCenterX;
+    }
+    
+    public double getMyCenterY() {
+      return myCenterY;
+    }
   
-  public double getMyCenterY() {
-    return myCenterY;
-  }
+    public double getMyXspeed() {
+    return myXspeed;
+    }
+  
+    public double getMyYspeed() {
+    return myYspeed;
+    }
+  
+    public double getMyPointDirection() {
+    return myPointDirection;
+    }
 }
