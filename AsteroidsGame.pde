@@ -1,12 +1,8 @@
 Star[] starBackground = new Star[300];
 Spaceship ship = new Spaceship();
-
 ArrayList <Bullet> bullet = new ArrayList <Bullet>();
-
 boolean accelerating = false;
-
 ArrayList <Asteroid> asteroid1 = new ArrayList <Asteroid>();
-//your variable declarations here
 
 public void setup() 
 {
@@ -17,9 +13,9 @@ public void setup()
   
   for(int i = 0; i < 10; i++) {
     asteroid1.add(new Asteroid());
-  }
-  
+  }  
 }
+
 public void draw() 
 {
   background(0);
@@ -91,8 +87,7 @@ public void keyPressed() {
   
   if(key == ' ') {
     bullet.add(new Bullet(ship));
-  }
-  
+  }  
 }
 
 public void keyReleased(){
