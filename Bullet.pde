@@ -6,7 +6,8 @@ class Bullet extends Floater {
     myPointDirection = theShip.getMyPointDirection();
     accelerate(6);
     
-    myColor = 255;
+    // myColor = 255;
+    myColor = color((int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 256));
   }
   
   public void show() {
