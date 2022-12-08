@@ -4,6 +4,8 @@ ArrayList <Bullet> bullet = new ArrayList <Bullet>();
 boolean accelerating = false;
 ArrayList <Asteroid> asteroid1 = new ArrayList <Asteroid>();
 
+boolean wPress, sPress, aPress, dPress;
+
 public void setup() 
 {
   size(500, 500);
@@ -57,6 +59,24 @@ public void draw()
     textAlign(CENTER, CENTER);
     text("WINNER", 250, 250);
   }
+
+if(wPress) {
+  ship.accelerate(0.1);
+}
+
+if(sPress) {
+  ship.accelerate(-0.1);
+}
+
+if(aPress) {
+    ship.turn(-5);
+    //ship.turn(-15);
+}
+
+if(dPress) {
+  ship.turn(5);
+  //ship.turn(15);
+}
 }
 
 public void keyPressed() {
@@ -66,23 +86,20 @@ public void keyPressed() {
   }
   
   if(key == 'a' || key == 'A') {
-    ship.turn(-15);
-    ship.turn(-15);
+    aPress = true;
   }
   
   if(key == 'd' || key == 'D') {
-    ship.turn(15);
-    ship.turn(15);
+    dPress = true;
   }
   
-  if(key == 'w' || key == 'W') {
-    ship.accelerate(0.75);
-    
+  if(key == 'w' || key == 'W') {   
+    wPress = true;
     accelerating = true;
   }
   
   if(key == 's' || key == 'S') {
-    ship.accelerate(-0.75);
+    sPress = true;
   }
   
   if(key == 'k' || key == 'K') {
@@ -92,4 +109,22 @@ public void keyPressed() {
 
 public void keyReleased(){
   accelerating = false;
+  
+  if(key == 'a' || key == 'A') {
+    aPress= false;
+  }
+  
+  if(key == 'd' || key == 'D') {
+    dPress = false;
+  }
+  
+  if(key == 'w' || key == 'W') {
+    
+    wPress = false;
+    accelerating = false;
+  }
+  
+  if(key == 's' || key == 'S') {
+    sPress = false;
+  }
 }
